@@ -59,7 +59,6 @@
   }
 
   .btn-primary {
-    padding-top: ;
     background-color: #67a0f8;
     color: #fff;
     border: none;
@@ -71,6 +70,8 @@
     text-align: center;
     font-size: 16px;
     transition: background-color 0.3s;
+    margin-top: 10%;
+
   }
 
   .btn-primary:hover {
@@ -87,9 +88,39 @@
     text-align: center;
     color: #fff;
   }
-  .select-position{
-    padding: 20px;
+  .select-position1{
+    padding: 10px;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+
+
   }
+  /* Styles for screens smaller than 768px */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px; /* Add padding to the container */
+  }
+  .signin-box {
+    max-width: 100%; /* Make the sign-in box full width */
+  }
+  .btn-primary {
+    margin-top: 20px; /* Adjust margin-top for the button */
+  }
+}
+
+/* Styles for screens smaller than 576px */
+@media (max-width: 576px) {
+  .input-group input {
+    width: 100%; /* Make input fields full width */
+  }
+  .select-position1 {
+    width: 100%; /* Make the select element full width */
+  }
+}
+
 
   </style>
 </head>
@@ -99,18 +130,18 @@
       <h2>LOGIN</h2>
       <form action="/signin" method="post">
         <div class="input-group">
-          <label for="username"><strong>Username:</strong></label>
-          <input type="text" id="username" name="username" required>
+          <label for="username" ><strong>Username:</strong></label>
+          <input type="text" id="username" name="username" placeholder="nithishkumar" required>
         </div>
         <div class="input-group">
           <label for="password"><strong>Password:</strong></label>
-          <input type="password" id="password" name="password" required>
+          <input type="password" id="password" name="password" placeholder="**********" required>
         </div>
-        <div class="select-position">
-        <label for="position">Choose a Position:</label>
-         <select name="position" id="position">
-         <option value="supporting-staff">Supporting Staff</option>
-        <option value="teaching-faculty">Teaching Faculty</option>
+        <div class="input-group">
+        <label for="position"><strong> Choose a Position:</strong></label><br>
+         <select class="select-position1" name="position" id="position">
+         <option class="option1" value="supporting-staff">Supporting Staff</option>
+        <option class="option2" value="teaching-faculty">Teaching Faculty</option>
          </select>
          </div>
         <button type="submit" class="btn-primary">Sign In</button>
