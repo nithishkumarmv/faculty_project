@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="signin.css">
+  <link rel="icon" href="img/logo.png" type="image/x-icon">
+  <title>Sign In Page</title>
+  <style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+
+  .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .signin-box {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+  }
+
+  .signin-box h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+  }
+
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+  }
+
+  .input-group input {
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .input-group input:focus {
+    outline: none;
+    border-color: #67a0f8;
+  }
+
+  .btn-primary {
+    padding-top: ;
+    background-color: #67a0f8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+
+  .btn-primary:hover {
+    background-color: #3b7ae9;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #67a0f8;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+  }
+  .select-position{
+    padding: 20px;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="signin-box">
+      <h2>LOGIN</h2>
+      <form action="/signin" method="post">
+        <div class="input-group">
+          <label for="username"><strong>Username:</strong></label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-group">
+          <label for="password"><strong>Password:</strong></label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="select-position">
+        <label for="position">Choose a Position:</label>
+         <select name="position" id="position">
+         <option value="supporting-staff">Supporting Staff</option>
+        <option value="teaching-faculty">Teaching Faculty</option>
+         </select>
+         </div>
+        <button type="submit" class="btn-primary">Sign In</button>
+        <div class="input-position">
+         </div>
+      </form>
+      <div style="margin-top: 10px; text-align: center;">
+        <span><strong>Not have an account?</strong> <a href="/signup">Sign Up</a></span>
+        <br>
+        <a href="/forget"><strong>Forget Password?</strong></a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    &copy; 2024 Staff Selection Application
+  </footer>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease; /* Added transition for the blow effect */
+        }
+
+        .container:hover {
+            border-color: #0d00c4; /* Change border color on hover */
+            box-shadow: 0 0 20px rgba(4, 41, 192, 0.5); /* Change box shadow on hover */
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            text-decoration: none; /* Remove underline by default */
+            transition: text-decoration 0.3s ease; /* Added transition for the underline effect */
+        }
+
+        .container h1:hover {
+            text-decoration: underline; /* Apply underline effect on hover */
+        }
+
+        .profile-details {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; /* Added flex-wrap for responsiveness */
+        }
+
+        .profile-image {
+            margin-right: 20px;
+            margin-bottom: 20px; /* Added margin-bottom for responsiveness */
+        }
+
+        .profile-image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .details {
+            flex-grow: 1;
+            padding-top: 20px;
+        }
+
+        .detail {
+            margin-bottom: 10px;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .value {
+            margin-left: 10px;
+            font-weight: normal;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media query for responsiveness */
+        @media (max-width: 600px) {
+            .profile-details {
+                flex-direction: column;
+            }
+            .profile-image {
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Staff Profile</h1>
+        <div class="profile-details">
+            <div class="profile-image">
+                <img src="https://media.licdn.com/dms/image/D4D03AQE-PKavKmnSEw/profile-displayphoto-shrink_200_200/0/1691302276733?e=1714003200&v=beta&t=2nuTyOUMoAI4HvkZTikR_RxmyEqHnOD_cbJoQGasa54" alt="Staff Photo">
+            </div>
+            <div class="details">
+                <div class="detail">
+                    <span class="label">Name:</span>
+                    <span class="value"><%= staff.name %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Gender:</span>
+                    <span class="value"><%= staff.gender %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Marital Status:</span>
+                    <span class="value"><%= staff.maritalStatus %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Father's Name:</span>
+                    <span class="value"><%= staff.fatherName %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Date of Birth:</span>
+                    <span class="value"><%= staff.dob %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Address:</span>
+                    <span class="value"><%= staff.address %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Contact Details:</span>
+                    <span class="value"><%= staff.contact %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Personal Details:</span>
+                    <span class="value"><%= staff.personalDetails %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Educational Details:</span>
+                    <span class="value"><%= staff.education %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Work Experience:</span>
+                    <span class="value"><%= staff.workExperience %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">References:</span>
+                    <span class="value"><%= staff.references %></span>
+                </div>
+            </div>
+        </div>
+        <a href="/edit-profile">Edit Profile</a>
+    </div>
+</body>
+</html>
