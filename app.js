@@ -41,7 +41,8 @@ const staffData = {
     personalDetails: "Full Stack Developer",
     education: "Bachelor's Degree in Computer Science",
     workExperience: "5 years in web development",
-    references: "Available upon request"
+    references: "Available upon request",
+    status: "In review"
 };
 
 // Route to render the index.ejs template
