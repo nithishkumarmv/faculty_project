@@ -45,10 +45,16 @@ const staffData = {
     status: "In review"
 };
 
-// Route to render the index.ejs template
+// Route to render the profile.ejs template
 app.get('/views/profile', (req, res) => {
     res.render('profile', { staff: staffData });
 });
+
+// Route to render the kar.ejs template
+app.get('/views/kar', (req, res) => {
+  res.render('kar', { staff: staffData });
+});
+
 // Define routes
 app.get('/login', (req, res) => {
     res.render('login');
@@ -69,6 +75,75 @@ app.post('/login', async (req, res) => {
 app.get('/logout', (req, res) => {
   req.session.destroy();
   res.redirect('/login');
+});
+
+
+
+
+let applications = [
+    { applicationNumber: 1, name: 'A', designation: 'Asst. Professor', department: 'IT', description: 'desc' },
+    { applicationNumber: 2, name: 'B', designation: 'Asst. Professor', department: 'CSE', description: 'desc' }
+];
+let acceptedApplications = [];
+
+
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
+
+const schema = new mongoose.Schema({
+    applicationnumber: Number,
+    name: String,
+    designation: String,
+    department: String,
+    description:String,
+    hra: Number,
+    pa:Number,
+    ma:Number
+
+
+});
+const mod = mongoose.model('applications', schema);
+app.get('/views/kar', async (req, res) => {
+    try{
+    await mongo.connect(connectionuri);
+    applications=await mod.find({hra:0,pa:0,ma:0});
+    acceptedApplications=await mod.find({hra:1});
+    //console.log(applications);
+    res.render('', { applications, acceptedApplications });
+    }
+    catch{
+
+    }
+
+    
+});
+//submit button
+app.post('/accept/:applicationnumber', async(req, res) => {
+    const applicationnumber = parseInt(req.params.applicationnumber);
+    try{
+        await mongo.connect(connectionuri);
+        await mod.updateMany({applicationnumber:applicationnumber},{hra:1,description:"Accepted By HR"});
+        
+    }
+    catch{
+
+    }
+    
+    res.redirect('/');
+});
+//reject button
+app.post('/reject/:applicationnumber',async (req, res) => {
+    const applicationnumber = parseInt(req.params.applicationnumber);
+    try{
+        await mongo.connect(connectionuri);
+        await mod.updateMany({applicationnumber:applicationnumber},{hra:1,description:"Rejected by HR"});
+        
+    }
+    catch{
+
+    }
+    res.redirect('/');
+    
 });
 
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>HR approval</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Application Number</th>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Department</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% applications.forEach(app => { %>
+                <tr>
+                    <td><%= app.applicationnumber %></td>
+                    <td><%= app.name %></td>
+                    <td><%= app.designation %></td>
+                    <td><%= app.department %></td>
+                    <td><%= app.description %></td>
+                    <td>
+                        <form action="/accept/<%= app.applicationnumber %>" method="post">
+                            <button type="submit">Accept</button>
+                        </form>
+                        <form action="/reject/<%= app.applicationnumber %>" method="post">
+                            <button type="submit">Reject</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <% if (acceptedApplications.length > 0) { %>
+        <h2>Processed Applications</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Application Number</th>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Department</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% acceptedApplications.forEach(app => { %>
+                    <tr>
+                        <td><%= app.applicationnumber %></td>
+                        <td><%= app.name %></td>
+                        <td><%= app.designation %></td>
+                        <td><%= app.department %></td>
+                        <td><%= app.description %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+</body>
+</html>
