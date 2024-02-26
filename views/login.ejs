@@ -8,123 +8,147 @@
   <title>Sign In Page</title>
   <style>
     body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-  }
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
 
-  .container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-  .signin-box {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 90%;
-  }
+    .signin-box {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 90%;
+    }
 
-  .signin-box h2 {
-    text-align: center;
-    color: #333;
-  }
+    .signin-box h2 {
+      text-align: center;
+      color: #333;
+    }
 
-  .input-group {
-    margin-bottom: 20px;
-  }
+    .input-group {
+      margin-bottom: 20px;
+    }
 
-  .input-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #555;
-  }
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
 
-  .input-group input {
-    width: 95%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
+    .input-group input {
+      width: 95%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
 
-  .input-group input:focus {
-    outline: none;
-    border-color: #67a0f8;
-  }
+    .input-group input:focus {
+      outline: none;
+      border-color: #67a0f8;
+    }
 
-  .btn-primary {
-    background-color: #67a0f8;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    display: block;
-    text-align: center;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    margin-top: 10%;
+    .btn-primary {
+      background-color: #67a0f8;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      display: block;
+      text-align: center;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      margin-top: 10%;
+    }
 
-  }
+    .btn-primary:hover {
+      background-color: #3b7ae9;
+    }
 
-  .btn-primary:hover {
-    background-color: #3b7ae9;
-  }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #67a0f8;
+      padding: 10px 0;
+      text-align: center;
+      color: #fff;
+    }
 
-  .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #67a0f8;
-    padding: 10px 0;
-    text-align: center;
-    color: #fff;
-  }
-  .select-position1{
-    padding: 10px;
-    width: 100%;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid #ccc;
+    .select-position1 {
+      padding: 10px;
+      width: 100%;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+    }
 
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      z-index: 999;
+    }
 
-  }
-  /* Styles for screens smaller than 768px */
-@media (max-width: 768px) {
-  .container {
-    padding: 20px; /* Add padding to the container */
-  }
-  .signin-box {
-    max-width: 100%; /* Make the sign-in box full width */
-  }
-  .btn-primary {
-    margin-top: 20px; /* Adjust margin-top for the button */
-  }
-}
+    .navbar img {
+      width: 50px;
+      height: auto;
+      margin-right: 10px;
+    }
 
-/* Styles for screens smaller than 576px */
-@media (max-width: 576px) {
-  .input-group input {
-    width: 100%; /* Make input fields full width */
-  }
-  .select-position1 {
-    width: 100%; /* Make the select element full width */
-  }
-}
+    .navbar h2 {
+      margin: 0;
+      font-size: 20px;
+    }  
 
+    /* Styles for screens smaller than 768px */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+      .signin-box {
+        max-width: 100%;
+      }
+      .btn-primary {
+        margin-top: 20px;
+      }
+    }
 
+    /* Styles for screens smaller than 576px */
+    @media (max-width: 576px) {
+      .input-group input,
+      .select-position1 {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="navbar">
+    <img src="http://www.psgitech.ac.in/img/psg_tech_logo.png">
+    <h2>PSG Institute of Technology and Applied Research</h2>
+</div>
   <div class="container">
     <div class="signin-box">
       <h2>LOGIN</h2>

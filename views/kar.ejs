@@ -3,29 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR</title>
+    <title>HR Approval</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+        .navbar img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .navbar h2 {
+            margin: 0;
+            font-size: 20px;
+        }  
         table {
             border-collapse: collapse;
-            width: 100%;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         th, td {
-            border: 1px solid black;
-            padding: 8px;
+            border: 1px solid #ddd;
+            padding: 12px;
             text-align: left;
         }
         th {
             background-color: #f2f2f2;
         }
-        button {
-            padding: 5px 10px;
+        .actions {
+            text-align: center;
+        }
+        .actions button {
+            padding: 8px 16px;
+            margin: 4px;
             cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .actions button:hover {
+            background-color: #45a049;
+        }
+    
+        /* Responsive Styling */
+        @media screen and (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+            th, td {
+                padding: 8px;
+            }
+            .actions button {
+                padding: 6px 12px;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .navbar img {
+                margin-bottom: 10px; /* Add some space between logo and text */
+            }
         }
     </style>
+    
 </head>
 <body>
-    
-    <h1>HR approval</h1>
+    <div class="navbar">
+        <img src="http://www.psgitech.ac.in/img/psg_tech_logo.png">
+        <h2>PSG Institute of Technology and Applied Research</h2>
+    </div>
+    <div class="ProcessedApplications" style="padding-top: 50px;">
+    <h1>HR Approval</h1>
     <table>
         <thead>
             <tr>
@@ -34,33 +103,38 @@
                 <th>Designation</th>
                 <th>Department</th>
                 <th>Description</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <% applications.forEach(app => { %>
                 <tr>
-                    <td><%= app.applicationnumber %></td>
+                    <td><%= app.applicationNumber %></td>
                     <td><%= app.name %></td>
                     <td><%= app.designation %></td>
                     <td><%= app.department %></td>
                     <td><%= app.description %></td>
-                    <td>
-                        <form action="/accept/<%= app.applicationnumber %>" method="post">
-                            <button type="submit">Accept</button>
-                        </form>
-                        <form action="/reject/<%= app.applicationnumber %>" method="post">
-                            <button type="submit">Reject</button>
-                        </form>
+                    <td><%= app.status %></td>
+                    <td class="actions">
+                        <% if (app.status === 'Pending') { %>
+                            <form action="/accept/<%= app.applicationNumber %>" method="post">
+                                <button type="submit">Accept</button>
+                            </form>
+                            <form action="/reject/<%= app.applicationNumber %>" method="post">
+                                <button type="submit">Reject</button>
+                            </form>
+                        <% } %>
                     </td>
                 </tr>
             <% }) %>
         </tbody>
     </table>
-
+    </div>
+    <div class="ProcessedApplications">
     <% if (acceptedApplications.length > 0) { %>
-        <h2>Processed Applications</h2>
-        <table>
+        <h1>Processed Applications</h1>
+        <table >
             <thead>
                 <tr>
                     <th>Application Number</th>
@@ -83,5 +157,6 @@
             </tbody>
         </table>
     <% } %>
+    </div>
 </body>
 </html>
